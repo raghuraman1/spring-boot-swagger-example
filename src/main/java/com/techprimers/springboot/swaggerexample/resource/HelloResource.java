@@ -4,6 +4,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -32,6 +35,20 @@ public class HelloResource {
     @ApiOperation(value = "Returns Hello World")
     @PutMapping("/put")
     public String helloPut(@RequestBody final String hello) {
+        return hello;
+    }
+    
+    @ApiOperation(value = "Uses Abc", response=Abc.class)
+   
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved resource"),
+            @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+    }
+    )
+    @PostMapping("/abc")
+    public Abc abc(@RequestBody  @Valid final Abc hello) {
         return hello;
     }
 }
