@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import io.swagger.annotations.ApiModelProperty;
+//import io.swagger.annotations.ApiModelProperty;
 
 public class Abc {
 	
@@ -44,7 +44,7 @@ public class Abc {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	@ApiModelProperty(required = true )
+	//@ApiModelProperty(required = true )
 	private String stringField;
 	private int numberField;;
 	public String getStringField() {

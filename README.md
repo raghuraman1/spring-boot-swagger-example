@@ -4,3 +4,5 @@
 
 also see
 http://localhost:8088/v2/api-docs
+
+https://dzone.com/articles/overcoming-swagger-annotation-overload-by-switchin

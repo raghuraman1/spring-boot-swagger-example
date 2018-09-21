@@ -1,0 +1,323 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Spring Boot Swagger Example API for Youtube",
+		"version": "1.0",
+		"title": "Spring Boot Swagger Example API",
+		"termsOfService": "Terms of Service",
+		"contact": {
+			"name": "TechPrimers",
+			"url": "https://www.youtube.com/TechPrimers",
+			"email": "techprimerschannel@gmail.com"
+		},
+		"license": {
+			"name": "Apache License Version 2.0",
+			"url": "https://www.apache.org/licesen.html"
+		}
+	},
+	"host": "localhost:8088",
+	"basePath": "/",
+	"tags": [
+		{
+			"name": "hello-resource",
+			"description": "shows hello world"
+		},
+		{
+			"name": "user-resource",
+			"description": "Shows the user info"
+		}
+	],
+	"paths": {
+		"/rest/hello": {
+			"get": {
+				"tags": [
+					"hello-resource"
+				],
+				"summary": "Returns Hello World",
+				"operationId": "helloUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"100": {
+						"description": "100 is the message"
+					},
+					"200": {
+						"description": "Successful Hello World",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/rest/hello/abc": {
+			"post": {
+				"tags": [
+					"hello-resource"
+				],
+				"summary": "Uses Abc",
+				"operationId": "abcUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "hello",
+						"description": "hello",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/Abc"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved resource",
+						"schema": {
+							"$ref": "#/definitions/Abc"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "You are not authorized to view the resource"
+					},
+					"403": {
+						"description": "Accessing the resource you were trying to reach is forbidden"
+					},
+					"404": {
+						"description": "The resource you were trying to reach is not found"
+					}
+				}
+			}
+		},
+		"/rest/hello/post": {
+			"post": {
+				"tags": [
+					"hello-resource"
+				],
+				"summary": "Returns Hello World",
+				"operationId": "helloPostUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "hello",
+						"description": "hello",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/rest/hello/put": {
+			"put": {
+				"tags": [
+					"hello-resource"
+				],
+				"summary": "Returns Hello World",
+				"operationId": "helloPutUsingPUT",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "hello",
+						"description": "hello",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/rest/user": {
+			"get": {
+				"tags": [
+					"user-resource"
+				],
+				"summary": "getUsers",
+				"operationId": "getUsersUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/User"
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/rest/user/{userName}": {
+			"get": {
+				"tags": [
+					"user-resource"
+				],
+				"summary": "getUser",
+				"operationId": "getUserUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "userName",
+						"in": "path",
+						"description": "userName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/User"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Abc": {
+			"type": "object",
+			"required": [
+				"stringField"
+			],
+			"properties": {
+				"age": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstName": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"numberField": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"stringField": {
+					"type": "string"
+				}
+			}
+		},
+		"User": {
+			"type": "object",
+			"properties": {
+				"salary": {
+					"type": "integer",
+					"format": "int64",
+					"description": "salary of the user"
+				},
+				"userName": {
+					"type": "string",
+					"description": "name of the User"
+				}
+			}
+		}
+	}
+}
