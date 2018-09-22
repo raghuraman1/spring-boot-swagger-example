@@ -44,7 +44,7 @@ public class Abc {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	@ApiModelProperty(required = true, value = "Nome da lista", 
+	@ApiModelProperty(required = true, value = "something", 
 		    dataType="java.lang.String", 
 		    allowableValues="range[-infinity, 100]" )
 	
